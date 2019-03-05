@@ -1,0 +1,14 @@
+github_url: "https://raw.githubusercontent.com/shah/ccf-container-defns/master"
+ccf_defn_file: container.ccf-defn.jsonnet
+traefik_ccf_container_path: /opt/event-navigator-containers/traefik
+postgres_ccf_container_path: /opt/event-navigator-containers/postgres
+postgres_exporter_ccf_container_path: /opt/event-navigator-containers/postgres_exporter
+prometheus_ccf_container_path: /opt/event-navigator-containers/prometheus
+grafana_ccf_container_path: /opt/event-navigator-containers/grafana
+portainer_ccf_container_path: /opt/event-navigator-containers/portainer
+loki_ccf_container_path: /opt/event-navigator-containers/loki
+app_ccf_container_path: /opt/event-navigator-containers/eventnavigator-ui
+hasura_ccf_container_path: /opt/event-navigator-containers/hasura
+event_navigator_containers_path: /opt/event-navigator-containers
+event_navigator_git_account: rinshad_ka
+event_navigator_git_account_token: fVtyW3AKxJxKUs8GJEsu

@@ -1,0 +1,52 @@
+---
+- name: Event Navigator CCF Containers
+  hosts: all
+  vars_files:
+    - ../conf/appliance.common.ansible-vars.yml
+    - ../conf/appliance.secrets.ansible-vars.yml
+    - ../conf/ccf.container.common.ansible-vars.yml
+  tasks:
+    - name: Clone Event Navigator Private CCF Containers
+      git:
+       name: https://{{ event_navigator_git_account | urlencode }}:{{ event_navigator_git_account_token | urlencode }}@github.com/conferencefinder/cf-ccf-containers.git
+       dest: '{{ event_navigator_containers_path }}'
+       force: yes
+
+    - name: Go to Traefik directory and install Traefik routing CCF Container service
+      command: chdir={{ traefik_ccf_container_path }} ccfmake start
+
+    - name: Go to Postgres directory and install Postgres CCF Container service
+      command: chdir={{ postgres_ccf_container_path }} ccfmake start
+
+    - name: Go to Hasura directory and install Hasura CCF Container service
+      command: chdir={{ hasura_ccf_container_path }} ccfmake start
+
+    - name: Install eventNavigator-app Container service
+      command: chdir={{ app_ccf_container_path }} ccfmake start
+    
+    - name: Go to postgres_exporter directory and install postgres_exporter CCF Container service
+      command: chdir={{ postgres_exporter_ccf_container_path }} ccfmake start
+
+    - name: Go to prometheus directory and install prometheus CCF Container service
+      command: chdir={{ prometheus_ccf_container_path }} ccfmake start
+
+    - name: Go to portainer directory and install portainer CCF Container service
+      command: chdir={{ portainer_ccf_container_path }} ccfmake start
+
+    - name: Go to grafana directory and install grafana CCF Container service
+      command: chdir={{ grafana_ccf_container_path }} ccfmake start
+     
+    - name: Go to Loki directory and install Loki CCF Container service  
+      command: chdir={{ loki_ccf_container_path }} ccfmake start
+
+    - name: Allow Grafana container to acces Prometheus port in docker host through docker bridge network
+      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 8010
+
+    - name: Allow Prometheus container to acces node_exporter port in docker host through docker bridge network
+      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 9100
+
+    - name: Allow postgres_exporter container to acces postgres port in docker host through docker bridge network
+      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 5432
+
+    - name: Allow Prometheus container to acces postgres_exporter port in docker host through docker bridge network
+      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 9187
