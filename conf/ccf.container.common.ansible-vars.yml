@@ -1,5 +1,5 @@
-github_url: "https://raw.githubusercontent.com/shah/ccf-container-defns/master"
-ccf_defn_file: container.ccf-defn.jsonnet
+appliance_admin_user_common_runtime_config_directory: "/home/{{ appliance_admin_user }}/.ccf/etc"
+appliance_admin_user_secrets_directory: "/home/{{ appliance_admin_user }}/.ccf/secrets"
 traefik_ccf_container_path: /opt/event-navigator-containers/traefik
 postgres_ccf_container_path: /opt/event-navigator-containers/postgres
 postgres_exporter_ccf_container_path: /opt/event-navigator-containers/postgres_exporter
@@ -10,5 +10,5 @@ loki_ccf_container_path: /opt/event-navigator-containers/loki
 app_ccf_container_path: /opt/event-navigator-containers/eventnavigator-ui
 hasura_ccf_container_path: /opt/event-navigator-containers/hasura
 event_navigator_containers_path: /opt/event-navigator-containers
-event_navigator_git_account: rinshad_ka
-event_navigator_git_account_token: fVtyW3AKxJxKUs8GJEsu
+event_navigator_git_account: xxxxxxxx
+event_navigator_git_account_token: xxxxxxxxxx
