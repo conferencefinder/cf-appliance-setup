@@ -10,5 +10,5 @@ loki_ccf_container_path: /opt/event-navigator-containers/loki
 app_ccf_container_path: /opt/event-navigator-containers/eventnavigator-ui
 hasura_ccf_container_path: /opt/event-navigator-containers/hasura
 event_navigator_containers_path: /opt/event-navigator-containers
-event_navigator_git_account: xxxxxxxx
-event_navigator_git_account_token: xxxxxxxxxx
+github_account: xxxxxxxx
+github_account_token: xxxxxxxxxx

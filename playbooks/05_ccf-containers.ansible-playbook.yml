@@ -8,9 +8,17 @@
   tasks:
     - name: Clone Event Navigator Private CCF Containers
       git:
-       name: https://{{ event_navigator_git_account | urlencode }}:{{ event_navigator_git_account_token | urlencode }}@github.com/conferencefinder/cf-ccf-containers.git
+       name: https://{{ github_account | urlencode }}:{{ github_account_token | urlencode }}@github.com/conferencefinder/cf-ccf-containers.git
        dest: '{{ event_navigator_containers_path }}'
        force: yes
+
+    - name: Create Appliance Admin User Common runtime config and Secrets directory
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - '{{ appliance_admin_user_common_runtime_config_directory }}'
+        - '{{ appliance_admin_user_secrets_directory }}'
 
     - name: Go to Traefik directory and install Traefik routing CCF Container service
       command: chdir={{ traefik_ccf_container_path }} ccfmake start
@@ -39,14 +47,5 @@
     - name: Go to Loki directory and install Loki CCF Container service  
       command: chdir={{ loki_ccf_container_path }} ccfmake start
 
-    - name: Allow Grafana container to acces Prometheus port in docker host through docker bridge network
-      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 8010
-
     - name: Allow Prometheus container to acces node_exporter port in docker host through docker bridge network
       shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 9100
-
-    - name: Allow postgres_exporter container to acces postgres port in docker host through docker bridge network
-      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 5432
-
-    - name: Allow Prometheus container to acces postgres_exporter port in docker host through docker bridge network
-      shell: ufw allow in on `echo br-$(docker network ls -f name=appliance | awk '{if (NR!=1) {print}}' | awk '{print $1}')` to any port 9187
