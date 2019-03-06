@@ -4,7 +4,6 @@
   vars_files:
     - ../conf/appliance.common.ansible-vars.yml
     - ../conf/appliance.secrets.ansible-vars.yml
-    - ../conf/ccf.container.common.ansible-vars.yml
   tasks:
     - name: Clone Event Navigator Private CCF Containers
       git:
