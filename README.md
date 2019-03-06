@@ -1,4 +1,4 @@
-# Welcome to the Conference Finder Appliance Setup Framework (ASF)
+# Conference Finder Appliance Setup
 
 ## Server software requirements
 
