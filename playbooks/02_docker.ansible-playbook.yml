@@ -39,11 +39,5 @@
       docker_network:
         name: appliance
 
-    - name: Download Container Configuration Framework (CCF) installer
-      get_url: url=https://raw.githubusercontent.com/shah/container-config-framework/master/bin/setup-CCF.sh dest=/tmp/setup-CCF.sh mode=a+x
-
-    - name: Execute the CCF installer
-      shell: /tmp/setup-CCF.sh
-
-    - name: Remove the CCF installer
-      file: path=/tmp/setup-CCF.sh state=absent
+    - name: Execute the Container Configuration Framework (CCF) installer
+      shell: /etc/appliance-setup-framework/container-config-framework/bin/setup-CCF.sh
