@@ -7,7 +7,7 @@
     apiAdminSecret: "xxxxxxxx",
     gitUserId: "xxxxxxxx",
     gitHubAccessToken: "xxxxxxxxxx",
-    gitRepositoryApp: "git.netspective.io/NIH-CSR/event-navigator-ui-2.git",
+    gitRepositoryApp: "github.com/conferencefinder/conference-finder-ui",
     gitBranchApp: "master",
     adminUser: "admin",
     adminPassword: "xxxxxxxx"
