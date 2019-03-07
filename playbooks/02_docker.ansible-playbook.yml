@@ -39,5 +39,13 @@
       docker_network:
         name: appliance
 
-    - name: Execute the Container Configuration Framework (CCF) installer
-      shell: /etc/appliance-setup-framework/container-config-framework/bin/setup-CCF.sh
+    - name: Set Container Configuration Framework (CCF)
+      file:
+       src: '/etc/appliance-setup-framework/container-config-framework/bin/{{ item.src }}'
+       dest: '/usr/bin/{{ item.dest }}'
+       state: link
+       force: yes
+      with_items:
+       - { src: 'ccfinit', dest: 'ccfinit' }
+       - { src: 'ccfmake', dest: 'ccfmake' }
+       - { src: 'jsonnet-v0.11.2', dest: 'jsonnet' }

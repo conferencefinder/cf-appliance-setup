@@ -16,7 +16,7 @@ CONTAINER_ENGINE_TARGET := DOCKER
 
 CONTAINER_IS_RUNNING := $(shell docker ps --filter "name=$(CONTAINER_NAME)" --filter "status=running" --quiet)
 
-CCF_HOME ?= /opt/container-config-framework
+CCF_HOME ?= /etc/appliance-setup-framework/container-config-framework
 CCF_LOG_LEVEL ?= "NONE"
 CCF_FACTS_FILES ?= $(CCF_HOME)/etc/common.ccf-factsgen.jsonnet:$(CONTAINER_DEFN_HOME)/container.ccf-factsgen.jsonnet
 JSONNET_PATH ?= $(HOME)/.ccf/secrets:$(HOME)/.ccf/etc:$(CCF_HOME)/lib:$(CCF_HOME)/etc
@@ -215,7 +215,7 @@ JSONNET_INSTALLED := $(shell command -v jsonnet 2> /dev/null)
 check-jsonnet:
 ifndef JSONNET_INSTALLED
 	echo "[ ] Did not find jsonnet, run this to set it up:"
-	echo "    sudo ln -s /opt/container-config-framework/bin/jsonnet-v0.11.2 /usr/bin/jsonnet"
+	echo "    sudo ln -s /etc/appliance-setup-framework/container-config-framework/bin/jsonnet-v0.11.2 /usr/bin/jsonnet"
 else
 	printf "[*] "
 	jsonnet --version

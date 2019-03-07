@@ -10,7 +10,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-CCF_HOME="${CCF_HOME:-/opt/container-config-framework}"
+CCF_HOME="${CCF_HOME:-/etc/appliance-setup-framework/container-config-framework}"
 CCF_LIB_PATH=$CCF_HOME/lib
 
 CCF_CONTAINER_DEFN_REPO_URL=https://raw.githubusercontent.com/shah/ccf-container-defns/master/
