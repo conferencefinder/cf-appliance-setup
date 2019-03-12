@@ -38,15 +38,11 @@ After bootstrap.sh is complete, exit the shell.
 
 ## Review your specific appliance variables
 
-After you've exited, log back in as the *admin user* and review the below mentioned files to customize it for your installation. 
+After you've exited, log back in as the *admin user* and create mentioned file and customize it for your installation. 
 
     cd /etc/appliance-setup-framework/conf
 
-    sudo vi appliance.secrets.ansible-vars.yml (GitHub access credentials)
-
-    sudo vi appliance.domain.conf.jsonnet (Domain specific details)
-
-    sudo vi container.secrets.conf.jsonnet (CCF container credential details)
+    sudo vi container.secrets.conf.jsonnet (template file already exist)
 
 
 ## Install software
