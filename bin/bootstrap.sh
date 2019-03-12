@@ -15,6 +15,7 @@ sudo apt-get install -y curl wget ansible git make python-pip jq
 title "Install roles from Ansible Galaxy"
 sudo ansible-galaxy install viasite-ansible.zsh
 sudo ansible-galaxy install robertdebock.ara
+sudo ansible-galaxy install robertdebock.service
 
 export ASF_HOME=/etc/appliance-setup-framework
 title "Download distribution into $ASF_HOME"

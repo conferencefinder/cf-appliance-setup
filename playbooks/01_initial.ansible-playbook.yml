@@ -45,6 +45,7 @@
     - name: Set to deny incoming requests by default
       ufw: >
         default=deny
+        direction=incoming
 
     - name: Turn on UFW
       ufw: >
