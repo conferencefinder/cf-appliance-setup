@@ -41,12 +41,15 @@ After bootstrap.sh is complete, exit the shell.
 After you've exited, log back in as the *admin user* and create mentioned file and customize it for your installation. 
 
     cd /etc/appliance-setup-framework/conf
-    create a new file using the below command 
+    
+   create a new file using the below command 
+    
     sudo vi container.secrets.conf.jsonnet 
-    Refer container.secrets.conf.tmpl.jsonnet to fill the keys 
-    Key mostly means the following things 
-    domainName: "Enter the domain as how we need to access the URLs related with this application",
-    uiSubDomain: "Enter the subdomain to access the UI application",
+    
+   Refer container.secrets.conf.tmpl.jsonnet to fill the keys (Key indicates the following things )
+   
+    domainName: "The domain as how we need to access the URLs related with this application",
+    uiSubDomain: "The subdomain to access the UI application",
     cfDBPassword: "New database password for the application DB ",
     apiAdminSecret: "New admin secrete for the API ",
     gitUserId: "Github user id to access the private repositries of the application",
