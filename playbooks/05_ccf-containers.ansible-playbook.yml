@@ -6,7 +6,7 @@
     - ../conf/appliance.secrets.ansible-vars.yml
   tasks:
     - include_vars:
-        file: ../conf/container.secrets.conf.jsonnet
+        file: /home/{{ appliance_admin_user }}/container.secrets.conf.jsonnet
         name: credential
 
     - name: Clone Event Navigator Private CCF Containers
