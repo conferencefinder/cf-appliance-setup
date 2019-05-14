@@ -7,5 +7,6 @@
     "gitHubAccessToken": "xxxxxxxxxx",
     "grafanaAdminUser": "xxxxxxxx",
     "grafanaAdminPassword": "xxxxxxxx",
+    "portainerAdminPassword": "xxxxxxxx",
     "sslEnable": "false"
 }
