@@ -1,6 +1,7 @@
 export CCF_PATH=/opt/event-navigator-containers
 export ASF_PATH=/etc/appliance-setup-framework
 cd $ASF_PATH
+sudo git reset --hard origin/master > /dev/null
 sudo git pull
 sudo docker stop $(docker ps -a -q)
 sudo docker rm $(docker ps -a -q)
