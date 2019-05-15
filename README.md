@@ -38,9 +38,9 @@ After bootstrap.sh is complete, exit the shell.
 
 ## Review your specific appliance variables
 
-After you've exited, log back in as the *admin user* and create mentioned file and customize it for your installation. 
+After you've exited, log back in as the *admin user* and create mentioned file in home folder and customize it for your installation. 
 
-    cd /etc/appliance-setup-framework/conf
+    cd $HOME
     
    create a new file using the below command 
     
@@ -48,14 +48,16 @@ After you've exited, log back in as the *admin user* and create mentioned file a
     
    Refer container.secrets.conf.tmpl.jsonnet to fill the keys (Key indicates the following things )
    
-    domainName: "The domain as how we need to access the URLs related with this application",
-    uiSubDomain: "The subdomain to access the UI application",
-    cfDBPassword: "New database password for the application DB ",
-    apiAdminSecret: "New admin secrete for the API ",
-    gitUserId: "Github user id to access the private repositries of the application",
-    gitHubAccessToken: "Github Access token to access the private repositries of the application",
-    grafanaAdminUser: "New user name for grafana admin ",
-    grafanaAdminPassword: "New password for grafana admin "
+    "domainName": "The domain as how we need to access the URLs related with this application",
+    "uiSubDomain": "The subdomain to access the UI application",
+    "cfDBPassword": "New database password for the application DB ",
+    "apiAdminSecret": "New admin secrete for the API ",
+    "gitUserId": "Github user id to access the private repositries of the application",
+    "gitHubAccessToken": "Github Access token to access the private repositries of the application",
+    "grafanaAdminUser": "New user name for grafana admin ",
+    "grafanaAdminPassword": "New password for grafana admin",
+    "portainerAdminPassword": "New password for portainer admin",
+    "sslEnable": "set it as "true" if we have  a valid SSL for the URLs, for test purpose we can keep it as "false""
 
 ## Install software
 
