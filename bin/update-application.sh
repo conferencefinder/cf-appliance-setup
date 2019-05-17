@@ -8,7 +8,7 @@ title() {
 export CCF_PATH=/opt/event-navigator-containers
 cd $CCF_PATH
 
-title "Update database changes"
+title "Update liquibase database changelog file"
 sudo git fetch
 sudo git checkout origin/master cf-hasura/etc/liquibase/nen.postgresql.sql
 
